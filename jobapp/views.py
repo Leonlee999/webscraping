@@ -167,6 +167,7 @@ def single_job_view(request):
     res = requests.get(url).content
     soup = BeautifulSoup(res, 'html.parser')
     data = soup.find('div', class_='jobsearch-jobDescriptionText')
+
     saved_lst = []
     applied_list = []
     for i in Saved.objects.all():
@@ -176,7 +177,7 @@ def single_job_view(request):
 
     rs={}
 
-    rs.update({'title': title, 'company': company, 'location': location,'description':data.text,'href':href,'job_type':job_type,'salary':salary})
+    rs.update({'title': title, 'company': company, 'location': location,'description':data.text if data!=None else 'No description, Company removed this Job Thank you .','href':href,'job_type':job_type,'salary':salary})
     context = {
         'job': rs,
         'saved':True if title in saved_lst else False,

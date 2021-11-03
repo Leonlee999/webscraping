@@ -205,8 +205,8 @@ $("#ajax_listing_paginattion" ).delegate( "a#ajax_paginator", "click", function(
                     response.job_lists.map(function (job) {
 
                         joblist+=`
-                          <li id="next" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-                            <a href="/job/${job.id}/"></a>
+                          <li id="next" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center mb-3">
+                            <a href="job?tk={{job.data_tk}}&jk={{job.data_jk}}&title={{job.title|safe}}&company={{job.company|safe}}&location={{job.location|safe}}&href={{job.href|safe}}&job_type={{job.job_type}}&salary={{job.salary}}"></a>
                               <div class="job-listing-logo">
                                 <img src="{% static 'images/i.jpg' %}" alt="Free Website Template by Free-Template.co"
                                   class="img-fluid">

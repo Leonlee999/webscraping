@@ -158,7 +158,12 @@
             <form action="" method="POST">
               {% csrf_token %}
               <input type="hidden" name="job" value="{{ job.id }}">
-              <input type="button" class="btn btn-block btn-light btn-md" value="Save" />
+              <input type="hidden" name="href" value="{{job.href}}">
+              <input type="hidden" name="title" value="{{job.title}}">
+              <input type="hidden" name="location" value="{{job.location}}">
+              <input type="hidden" name="company" value="{{job.company}}">
+              <input type="hidden" name="save" value=1>
+              <input type="submit" class="btn btn-block btn-light btn-md" value="Save" />
 
             </form>
 
