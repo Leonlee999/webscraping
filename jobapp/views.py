@@ -55,6 +55,7 @@ def job_data(job,location,jt):
         lst.append(rs.copy())
 
     return lst
+@login_required(login_url='/login')
 
 def home_view(request):
 
